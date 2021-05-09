@@ -1,16 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import Documentation from './Documentation';
+import Counter from './Counter';
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello world
-        </p>
-        <Documentation />
+        <h2>React Counter</h2>
+        <Counter/>
       </header>
     </div>
   );
