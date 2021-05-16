@@ -1,48 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import Employee from './Employee';
 
-const EmployeeInfo = [
-  {
-    firstName: "Nayana",
-    lastName: "W",
-    employeeID: 1
-  },
-  {
-    firstName: "Bruce",
-    lastName: "W",
-    employeeID: 2
-  },
-  {
-    firstName: "Tony",
-    lastName: "S",
-    employeeID: 3
-  },
-  {
-    firstName: "Elon",
-    lastName: "M",
-    employeeID: 4
-  }
-
-]
-
-
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Todos from './Todos';
+import Todo from './Todo';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h2>React Counter</h2>
-        {
-          EmployeeInfo.map(employee => {
-            // const { firstName, lastName } = employee;
-            return (
-              // <Employee firstName={firstName} lastName={lastName} />
-              <Employee key={employee.employeeID} {...employee} />// using spread operator
-            );
-          })
-        }
-      </header>
+
+
+      <Router>
+        <Switch>
+          <Route exact path="/" children={<Todos />} />
+          <Route path="/todo/:id" children={<Todo />} />
+        </Switch>
+      </Router>
     </div>
   );
 }
