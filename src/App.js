@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Todos from './Todos';
-import Todo from './Todo';
+import React from 'react';
+import Counter from './Counter';
+import { useSelector } from 'react-redux';
+
 
 function App() {
 
+  const count = useSelector(state=>state.counter.count);
   return (
     <div className="App">
-
-
-      <Router>
-        <Switch>
-          <Route exact path="/" children={<Todos />} />
-          <Route path="/todo/:id" children={<Todo />} />
-        </Switch>
-      </Router>
+      <h1>Test redux</h1>
+      <h2>The Global Count: {count}</h2>
+      <Counter/>
+      <Counter/>
     </div>
   );
 }
